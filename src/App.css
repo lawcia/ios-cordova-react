@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+.green {
+  background-color: green;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.grey {
+  background-color: grey;
+}
+
+.five-letter-row {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+}
+
+.five-letter-row > li {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.empty-black {
+  background-color: black
+}
