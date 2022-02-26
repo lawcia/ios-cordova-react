@@ -3,27 +3,32 @@ import { checkUserGuess } from "../utils/checkUserGuess";
 interface FiveLetterRowProps {
   wordOfTheDay: string;
   userGuess: string;
-  guessed: boolean;
+  completed: boolean;
 }
 
 const FiveLetterRow: React.FC<FiveLetterRowProps> = ({
   wordOfTheDay,
   userGuess,
-  guessed,
+  completed,
 }) => {
-    const notGuessedArray = [null, null, null, null, null]
+  const notGuessedArray = [null, null, null, null, null];
+  const userGuessArray = Array.from(userGuess);
 
-  if(!guessed){
-      return <ul className="five-letter-row">
-          {notGuessedArray.map((letter) => {
-              if (letter === null){
-                 return <li className="empty-black">
-                       
-                  </li>
-              }
-              return <></>
-          })}
+  if (!completed) {
+    return (
+      <ul className="five-letter-row">
+        {notGuessedArray.map((letter, index) => {
+          if (userGuessArray.length > index) {
+            return (
+              <li key={index} className="empty-black">
+                {userGuessArray[index]}
+              </li>
+            );
+          }
+          return <li key={index} className="empty-black"></li>;
+        })}
       </ul>
+    );
   }
 
   const letterColourArray = checkUserGuess(wordOfTheDay, userGuess);

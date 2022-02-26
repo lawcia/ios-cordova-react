@@ -1,43 +1,56 @@
 import { useState } from "react";
 import "./App.css";
 import FiveLetterRow from "./components/FiveLetterRow";
+import Keyboard from "./components/Keyboard";
 
 function App() {
-  const [row0Guess, setRow0Guess] = useState("H");
-  const [row1Guess, setRow1Guess] = useState("");
-  const [row2Guess, setRow2Guess] = useState("");
-  const [row3Guess, setRow3Guess] = useState("");
-  const [row4Guess, setRow4Guess] = useState("");
-  const [currentRow, setCurrentRow] = useState(0);
+  const [rowGuess, setRowGuess] = useState<string[]>([]);
+  const [currentRow, setCurrentRow] = useState<number>(0);
   const wordOfTheDay = "ULTRA";
+
+  const handleKeyPress = (letter: string) => {
+    if (letter !== "ENTER" && rowGuess.length === 0) {
+      setRowGuess([letter]);
+    } else if (currentRow >= 0) {
+      if (letter !== "ENTER" && rowGuess[currentRow].length < 5) {
+        const copy = [...rowGuess];
+        copy[currentRow] += letter;
+        setRowGuess(copy);
+      } else if (letter === "ENTER") {
+        setCurrentRow(currentRow + 1);
+        setRowGuess([...rowGuess, ""]);
+      }
+    }
+  };
 
   return (
     <div className="App">
       <FiveLetterRow
-        guessed={currentRow > 0}
-        userGuess={row0Guess}
+        completed={currentRow > 0 && rowGuess[0].length === 5}
+        userGuess={rowGuess.length > 0 ? rowGuess[0] : ""}
         wordOfTheDay={wordOfTheDay}
       />
       <FiveLetterRow
-        guessed={currentRow > 1}
-        userGuess={row1Guess}
+        completed={currentRow > 1}
+        userGuess={rowGuess.length > 1 ? rowGuess[1] : ""}
         wordOfTheDay={wordOfTheDay}
       />
       <FiveLetterRow
-        guessed={currentRow > 2}
-        userGuess={row2Guess}
+        completed={currentRow > 2}
+        userGuess={rowGuess.length > 2 ? rowGuess[2] : ""}
         wordOfTheDay={wordOfTheDay}
       />
       <FiveLetterRow
-        guessed={currentRow > 3}
-        userGuess={row3Guess}
+        completed={currentRow > 3}
+        userGuess={rowGuess.length > 3 ? rowGuess[3] : ""}
         wordOfTheDay={wordOfTheDay}
       />
       <FiveLetterRow
-        guessed={currentRow > 4}
-        userGuess={row4Guess}
+        completed={currentRow > 4}
+        userGuess={rowGuess.length > 4 ? rowGuess[4] : ""}
         wordOfTheDay={wordOfTheDay}
       />
+      <Keyboard handleKeyPress={handleKeyPress} />
     </div>
   );
 }
