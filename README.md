@@ -1,5 +1,10 @@
 ## Notes
 
+### Dependices
+
+- Cocoapods https://guides.cocoapods.org/using/getting-started.html#installation
+- xcode https://developer.apple.com/xcode/
+
 ```npm install -g cordova```
 
 ```cordova platform add ios```
