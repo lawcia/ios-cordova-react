@@ -1,6 +1,6 @@
 ## Notes
 
-### Dependices
+### Dependencies
 
 - Cocoapods https://guides.cocoapods.org/using/getting-started.html#installation
 - xcode https://developer.apple.com/xcode/
