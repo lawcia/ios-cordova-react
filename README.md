@@ -1,42 +1,15 @@
-3 states:
-- correct letter and correct position (green)
-- correct letter and wrong position (yellow)
-- wrong letter and wrong position (grey)
+## Notes
 
-6 guesses
-5 letters in a word
+```npm install -g cordova```
 
-Generate a 5 letter secret word for each round
-Another state for the 5 letter word the user guesses
+```cordova platform add ios```
 
-const c = (wordOfTheDay, userGuess) => {
- // dictionary data structure
+```cordova run ios```
 
- let dictionary = {
-     //ULTRA
-     U: 0,
-     L: 1,
-     T: 2,
-     R: 3,
-     A: 4
- }
+Ensure assets are fetched using relative path, add to package json
 
-// After user inputs all 5 letters, check each letter and verify against the 3 states
- // loop through userGuessWord
- // e.g. RAISE
- foreach(let word in dictionary) {
-     // if word and index same, return green
-     // if userGuessWord in dictionary but index different, return yellow
-     // if undefined, return grey
- }
-}
+```"homepage": "./"```
 
-let colourState = [
-    {letter: R, colour: yellow},
-    {letter: A, colour: yellow},
-    {letter: I, colour: grey},
-    {letter: S, colour: grey},
-    {letter: E, colour: grey}
-]
+Wait for react project to be built
 
-Visualise state in UI# wordle
+<hook type="before_prepare" src="scripts/prebuild.js" />

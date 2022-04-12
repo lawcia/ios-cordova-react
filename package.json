@@ -1,7 +1,8 @@
 {
-  "name": "wordle",
-  "version": "0.1.0",
-  "private": true,
+  "name": "io.cordova.hellocordova",
+  "displayName": "HelloCordova",
+  "version": "1.0.0",
+  "description": "A sample Apache Cordova application that responds to the deviceready event.",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
@@ -13,6 +14,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "rimraf": "^3.0.2",
     "typescript": "^4.5.5",
     "web-vitals": "^2.1.4"
   },
@@ -22,6 +24,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "keywords": [
+    "ecosystem:cordova"
+  ],
+  "author": "Apache Cordova Team",
+  "license": "Apache-2.0",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -38,6 +45,15 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "homepage": "./",
+  "devDependencies": {
+    "cordova-ios": "^6.2.0"
+  },
+  "cordova": {
+    "platforms": [
+      "ios"
     ]
   }
 }
